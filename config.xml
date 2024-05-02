@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+xmlns:context="http://www.springframework.org/schema/context" 
+xmlns:p="http://www.springframework.org/schema/p" 
+xmlns:tx="http://www.springframework.org/schema/tx" 
+xsi:schemaLocation="http://www.springframework.org/schema/beans 
+http://www.springframework.org/schema/beans/spring-beans.xsd 
+http://www.springframework.org/schema/context 
+http://www.springframework.org/schema/context/spring-context.xsd 
+http://www.springframework.org/schema/tx 
+http://www.springframework.org/schema/tx/spring-tx.xsd">
+	<bean name="emp1" class="CH.CoreApp.Employee" init-method="one" destroy-method="two">
+		<property name="empid" value="111"></property>
+		<property name="name" value="Sandeep"></property>
+	</bean>
+	<bean name="off" class="CH.CoreApp.Office">
+		<constructor-arg name="oid" value="123"></constructor-arg>
+		<constructor-arg name="oname" value="CHIPL"></constructor-arg>
+		<constructor-arg name="emp" ref="emp1"></constructor-arg>
+		<constructor-arg name="projects">
+			<list >
+				<value>" Coding Hub Page Retouch "</value>
+				<value>" JNTU-H Hacking "</value>
+				<value>" Amazon Free MemberShip Giver "</value>
+			</list>
+		</constructor-arg>
+		<constructor-arg name="pdate">
+			<map >
+				<entry key="19052024" value="Coding Hub Page Retouch"></entry>
+				<entry key="01062024" value="JNTU-H Hacking"></entry>
+				<entry key="10102024" value="Amazon Free MemberShip Giver"></entry>
+			</map>
+		</constructor-arg>
+	</bean>
+</beans>
